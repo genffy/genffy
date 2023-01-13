@@ -1,0 +1,24 @@
+baseURL = 'https://genffy.com'
+languageCode = 'en-us'
+title = '进击的页面仔'
+theme = 'ananke'
+enableRobotsTXT = true
+enableEmoji = true
+SectionPagesMenu = "main"
+resourceDir = "../resources"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  commentoEnable = false
+
+[[params.ananke_socials]]
+name = "Twitter"
+url = "https://twitter.com/genffy"
+
+[[params.ananke_socials]]
+name = "Github"
+url = "https://github.com/genffy"
