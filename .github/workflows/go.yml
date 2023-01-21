@@ -26,6 +26,10 @@ jobs:
 
     # - name: Test
     #   run: go test -v ./...
+    - name: Git Sumbodule Update
+      run: |
+        git pull --recurse-submodules
+        git submodule update --remote --recursive
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
