@@ -1,11 +1,52 @@
 baseURL = 'https://genffy.com'
 languageCode = 'en-us'
-title = '进击的页面仔'
+title = '进击的页面仔 | Attack on FE-boy'
 theme = 'ananke'
 enableRobotsTXT = true
 enableEmoji = true
 SectionPagesMenu = "main"
 resourceDir = "../resources"
+googleAnalytics = "G-PQFJ2C7QZN"
+# check i18n missing `hugo --printI18nWarnings | grep i18n`
+# new post `hugo new content/en/post/test.md`
+[languages]
+  [languages.en]
+    title = "Attach on FE-boy"
+    languageName = "English"
+    weight = 1
+    contentDir = "content/en"
+  [languages.zh]
+    title = "进击的页面仔"
+    languageName = "中文"
+    weight = 2
+    contentDir = "content/zh"
+
+# menu settings 
+[menu]
+  [[menu.main]]
+    weight = 4
+    identifier = "post"
+    pre = ""
+    post = ""
+    name = "文章"
+    url = "/post/"
+    title = ""
+  [[menu.main]]
+    weight = 4
+    identifier = "category"
+    pre = ""
+    post = ""
+    name = "标签"
+    url = "/category/"
+    title = ""
+  [[menu.main]]
+    weight = 4
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "关于"
+    url = "/about/"
+    title = ""
 
 [markup]
   [markup.goldmark]
@@ -14,6 +55,7 @@ resourceDir = "../resources"
 
 [params]
   commentoEnable = false
+  favicon = "images/mbox_avatar.jpeg"
 
 [[params.ananke_socials]]
 name = "Twitter"
