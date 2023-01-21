@@ -3,7 +3,3 @@
 	url = https://github.com/theNewDynamic/gohugo-theme-ananke
 	branch = master
 
-[submodule "themes/hugo-theme-bootstrap"]
-	path = themes/hugo-theme-bootstrap
-	url = https://github.com/razonyang/hugo-theme-bootstrap
-	branch = master	
