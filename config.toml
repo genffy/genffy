@@ -1,6 +1,6 @@
 baseURL = 'https://genffy.com'
-languageCode = 'cn'
-title = '进击的页面仔'
+languageCode = 'en-us'
+title = '进击的页面仔 | Attack on FE-boy'
 theme = 'ananke'
 enableRobotsTXT = true
 enableEmoji = true
@@ -55,6 +55,7 @@ googleAnalytics = "G-PQFJ2C7QZN"
 
 [params]
   commentoEnable = false
+  favicon = "images/mbox_avatar.jpeg"
 
 [[params.ananke_socials]]
 name = "Twitter"
