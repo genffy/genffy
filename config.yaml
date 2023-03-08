@@ -32,7 +32,6 @@ languages:
     contentDir: "content/en"
     profileMode:
       enabled: true
-      enabled: true
       title: Attach on page-boy
       imageUrl: "images/mbox_avatar.jpeg"
       imageTitle: genffy
