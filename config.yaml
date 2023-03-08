@@ -2,7 +2,7 @@ baseURL: "https://genffy.com" # if your site is in 'https', then make sure your 
 title: "进击的页面仔 | Attack on page-boy"
 paginate: 10
 theme: PaperMod
-
+defaultContentLanguage: zh
 resourceDir: ../resources
 
 enableInlineShortcodes: true
@@ -13,195 +13,182 @@ buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
 # googleAnalytics: UA-123-45
-# copyright: <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2023001307号-1</a>
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+permalinks:
+  posts: /:year/:month/:title/
 
 minify:
-    disableXML: true
-    # minifyOutput: true
+  disableXML: true
+  minifyOutput: true
 
 languages:
-    en:
-        languageName: "EN"
-        weight: 1
-        title: Attach on page-boy
-        contentDir: "content/en"
-        taxonomies:
-          category: categories
-          tag: tags
-          series: series
-        menu:
-            main:
-                - name: Posts
-                  url: posts
-                  weight: 5
-                # - name: Search
-                #   url: search/
-                #   weight: 10
-                # - name: Tags
-                #   url: tags/
-                #   weight: 10
-                - name: Snippets
-                  url: snippet  
-                  weight: 10
-                - name: About
-                  url: about
-    zh:
-        weight: 3
-        title: 进击的页面仔
-        languageName: "ZH"
-        contentDir: "content/zh"
-        homeInfoParams:
-            Title: "Hi there \U0001F44B"
-            Content: Welcome to RTL layout
-        taxonomies:
-          category: FAcategories
-          tag: FAtags
-          series: FAseries
-        menu:
-            main:
-                - name: 文章
-                  url: posts
-                  weight: 5
-                # - name: 搜索
-                #   url: search/
-                #   weight: 10
-                # - name: 标签
-                #   url: tags/
-                #   weight: 10
-                - name: 代码片段
-                  url: snippet
-                  weight: 10
-                - name: 关于
-                  url: about
+  en:
+    languageName: "EN"
+    weight: 1
+    title: Attach on page-boy
+    contentDir: "content/en"
+    profileMode:
+      enabled: true
+      enabled: true
+      title: Attach on page-boy
+      imageUrl: "images/mbox_avatar.jpeg"
+      imageTitle: genffy
+      buttons:
+        - name: Archives
+          url: archives
+        - name: Tags
+          url: tags
+    menu:
+      main:
+        - identifier: posts
+          name: Posts
+          url: posts
+          weight: 5
+        - identifier: snippet
+          name: Snippets
+          url: snippet
+          weight: 10
+        - identifier: about
+          name: About
+          url: about
+  zh:
+    weight: 3
+    title: 进击的页面仔
+    languageName: "ZH"
+    contentDir: "content/zh"
+    profileMode:
+      enabled: true
+      title: 进击的页面仔
+      imageUrl: "images/mbox_avatar.jpeg"
+      imageTitle: genffy
+      buttons:
+        - name: 归档
+          url: archives
+        - name: 标签
+          url: tags
+    menu:
+      main:
+        - identifier: posts
+          name: 文章
+          url: posts
+          weight: 5
+        - identifier: snippet
+          name: 代码片段
+          url: snippet
+          weight: 10
+        - identifier: about
+          name: 关于
+          url: about
 
 outputs:
-    home:
-        - HTML
-        - RSS
-        - JSON
+  home:
+    - HTML
+    - RSS
+    - JSON
 
 params:
-    env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Attack on page-boy - https://genffy.com/"
-    author: genffy
-    # author: ["Me", "You"] # multiple authors
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Attack on page-boy - https://genffy.com/"
+  author: genffy
+  defaultTheme: auto
+  # disableThemeToggle: true
+  ShowShareButtons: true
+  ShowReadingTime: true
+  # disableSpecial1stPost: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowToc: true
+  comments: true
+  # images: ["papermod-cover.png"]
 
-    defaultTheme: auto
-    # disableThemeToggle: true
-    ShowShareButtons: true
-    ShowReadingTime: true
-    # disableSpecial1stPost: true
-    displayFullLangName: true
-    ShowPostNavLinks: true
-    ShowBreadCrumbs: true
-    ShowCodeCopyButtons: true
-    ShowRssButtonInSectionTermList: true
-    ShowToc: true
-    comments: true
-    images: ["papermod-cover.png"]
+  homeInfoParams:
+    enabled: false
+    Title: genffy
+    Content: >
+      # TODO
 
-    profileMode:
-        enabled: false
-        title: PaperMod
-        imageUrl: "#"
-        imageTitle: my image
-        # imageWidth: 120
-        # imageHeight: 120
-        buttons:
-            - name: Archives
-              url: archives
-            - name: Tags
-              url: tags
+  socialIcons:
+    - name: github
+      url: "https://github.com/genffy"
+    - name: KoFi
+      url: "https://ko-fi.com/genffy"
+    - name: twitter
+      url: "https://twitter.com/genffy"
+    - name: discord
+      url: "https://discordapp.com/users/6684"
+    - name: Rss
+      url: "index.xml"
 
-    homeInfoParams:
-        Title: "PaperMod"
-        Content: >
-            Welcome to demo of hugo's theme PaperMod.
+  editPost:
+    URL: "https://github.com/genffy/genffy/tree/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
 
-            - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
+  # label:
+  #     text: "Home"
+  #     icon: icon.png
+  #     iconHeight: 35
 
-            - Do give a 🌟 on Github !
+  # analytics:
+  #     google:
+  #         SiteVerificationTag: "XYZabc"
 
-            - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper).
+  assets:
+    disableHLJS: true
+    favicon: "images/mbox_avatar.jpeg"
 
-    socialIcons:
-        - name: github
-          url: "https://github.com/genffy"
-        - name: twitter
-          url: "https://twitter.com/genffy"
-        - name: discord
-          url: "https://discordapp.com/users/6684"
-        - name: Rss
-          url: "index.xml"
+  # cover:
+  #     hidden: true # hide everywhere but not in structured data
+  #     hiddenInList: true # hide on list pages and home
+  #     hiddenInSingle: true # hide on single page
 
-    editPost:
-        URL: "https://github.com/genffy/genffy/tree/content"
-        Text: "Suggest Changes" # edit text
-        appendFilePath: true # to append file path to Edit link
-
-    # label:
-    #     text: "Home"
-    #     icon: icon.png
-    #     iconHeight: 35
-
-    # analytics:
-    #     google:
-    #         SiteVerificationTag: "XYZabc"
-
-    assets:
-        disableHLJS: true
-        favicon: "images/mbox_avatar.jpeg"
-    #     favicon16x16: "<link / abs url>"
-    #     favicon32x32: "<link / abs url>"
-    #     apple_touch_icon: "<link / abs url>"
-    #     safari_pinned_tab: "<link / abs url>"
-
-    # cover:
-    #     hidden: true # hide everywhere but not in structured data
-    #     hiddenInList: true # hide on list pages and home
-    #     hiddenInSingle: true # hide on single page
-
-    # fuseOpts:
-    #     isCaseSensitive: false
-    #     shouldSort: true
-    #     location: 0
-    #     distance: 1000
-    #     threshold: 0.4
-    #     minMatchCharLength: 0
-    #     keys: ["title", "permalink", "summary", "content"]
+  # fuseOpts:
+  #     isCaseSensitive: false
+  #     shouldSort: true
+  #     location: 0
+  #     distance: 1000
+  #     threshold: 0.4
+  #     minMatchCharLength: 0
+  #     keys: ["title", "permalink", "summary", "content"]
 
 markup:
-    goldmark:
-        renderer:
-            unsafe: true
-    highlight:
-        noClasses: false
-        # anchorLineNos: true
-        # codeFences: true
-        # guessSyntax: true
-        # lineNos: true
-        # style: monokai
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
 
 privacy:
-    vimeo:
-        disabled: false
-        simple: true
+  vimeo:
+    disabled: false
+    simple: true
 
-    twitter:
-        disabled: false
-        enableDNT: true
-        simple: true
+  twitter:
+    disabled: false
+    enableDNT: true
+    simple: true
 
-    instagram:
-        disabled: false
-        simple: true
+  instagram:
+    disabled: false
+    simple: true
 
-    youtube:
-        disabled: false
-        privacyEnhanced: true
+  youtube:
+    disabled: false
+    privacyEnhanced: true
 
 services:
-    instagram:
-        disableInlineCSS: true
-    twitter:
-        disableInlineCSS: true
+  instagram:
+    disableInlineCSS: true
+  twitter:
+    disableInlineCSS: true

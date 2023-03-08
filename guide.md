@@ -1,14 +1,20 @@
 # dev guide
 
 ## requirement
+update theme
 ```shell
-# TODO config it to git-hooks or pre `hugo` or `hugo server`
-# after checkout or pull
 git submodule update --init --recursive
 git submodule update --remote --merge
 ```
 
 ## new post
+- how use template
+- how use i18n
 ```bash
-hugo new posts/my-first-post.md
+hugo new content/en/post/test.md
+```
+
+## i18n check
+```bash
+hugo --printI18nWarnings | grep i18n
 ```
