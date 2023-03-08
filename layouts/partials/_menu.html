@@ -1,8 +1,0 @@
-<ul>
-    {{- $currentPage := . -}}
-    {{ range .Site.Menus.main -}}
-    <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
-        <a href="{{ .URL | absLangURL }}">{{ i18n .Identifier | default .Name}}</a>
-    </li>
-    {{- end }}
-</ul>
