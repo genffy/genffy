@@ -11,7 +11,7 @@ git submodule update --remote --merge
 - how use template
 - how use i18n
 ```bash
-hugo new content/en/post/test.md
+hugo new content/en/posts/test.md
 ```
 
 ## i18n check
