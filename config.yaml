@@ -139,7 +139,7 @@ params:
   #         SiteVerificationTag: "XYZabc"
 
   assets:
-    disableHLJS: true
+    # disableHLJS: false
     favicon: "images/mbox_avatar.jpeg"
 
   # cover:
