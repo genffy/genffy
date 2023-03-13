@@ -1,0 +1,26 @@
+{
+  "name": "genffy",
+  "version": "1.0.0",
+  "description": "blog",
+  "main": "index.js",
+  "scripts": {
+    "hsk": "husky install",
+    "dev": "hugo server",
+    "static": "node ./scripts/upload.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genffy/genffy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genffy/genffy/issues"
+  },
+  "homepage": "https://genffy.com/",
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "fast-glob": "^3.2.12",
+    "husky": "^8.0.3"
+  }
+}

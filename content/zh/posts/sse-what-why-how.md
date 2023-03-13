@@ -9,6 +9,11 @@ categories: ["front-end"]
 series: []
 ShowToc: true
 TocOpen: false
+cover:
+  image: "images/sse-what-why-how.webp"
+  alt: "SSE What Why How"
+  caption: ""
+  relative: false # To use relative path for cover image, used in hugo Page-bundles
 ---
 
 ## Server-Sent Event 是什么
