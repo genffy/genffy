@@ -5,8 +5,8 @@ draft: false
 author: "genffy"
 description: ""
 tags: ["Server-Sent Event", "nodejs", "SSE", "Readable Stream", "http"]
-categories: ["themes"]
-series: ["front-end"]
+categories: ["front-end"]
+series: []
 ShowToc: true
 TocOpen: false
 ---
@@ -144,4 +144,4 @@ console.log("SSE server listening on port 3000");
 该服务器每秒钟向客户端发送一个包含当前时间戳的 SSE 事件。可读流的数据通过 `pipe()` 方法发送到 SSE 事件流中。
 
 完整 demo 代码参考 
-<iframe src="https://stackblitz.com/edit/node-uazjw6?embed=1&view=editor" width="100%" height="800px" style="border: none" />
+<iframe src="https://stackblitz.com/edit/node-uazjw6?embed=1&view=editor" width="100%" height="800px" style="border: none" ></iframe>
