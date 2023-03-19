@@ -21,6 +21,7 @@
   "devDependencies": {
     "dotenv": "^16.0.3",
     "fast-glob": "^3.2.12",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "ali-oss": "^6.17.1"
   }
 }
