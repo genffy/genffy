@@ -18,3 +18,6 @@ hugo new content/en/posts/test.md
 ```bash
 hugo --printI18nWarnings | grep i18n
 ```
+
+## TODOs
+- upload static file to cdn and replace with cdn url
