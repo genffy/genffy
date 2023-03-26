@@ -19,5 +19,8 @@ hugo new content/en/posts/test.md
 hugo --printI18nWarnings | grep i18n
 ```
 
-## TODOs
-- upload static file to cdn and replace with cdn url
+## relace staic files with oss url
+<del>- upload static file to cdn and replace with cdn url</del>
+```javascript
+npm run static
+```

@@ -1,5 +1,5 @@
 baseURL: "https://genffy.com" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
-title: "进击的页面仔 | Attack on page-boy"
+title: "进击的页面仔 | Page-boy"
 paginate: 10
 theme: PaperMod
 defaultContentLanguage: zh
@@ -28,12 +28,12 @@ languages:
   en:
     languageName: "EN"
     weight: 1
-    title: Attach on page-boy
+    title: Page-boy
     contentDir: "content/en"
     profileMode:
       enabled: true
-      title: Attach on page-boy
-      imageUrl: "images/mbox_avatar.jpeg"
+      title: Page-boy
+      imageUrl: "https://static.genffy.com/blog/mbox_avatar.jpeg"
       imageTitle: genffy
       buttons:
         - name: Archives
@@ -61,7 +61,7 @@ languages:
     profileMode:
       enabled: true
       title: 进击的页面仔
-      imageUrl: "images/mbox_avatar.jpeg"
+      imageUrl: "https://static.genffy.com/blog/mbox_avatar.jpeg"
       imageTitle: genffy
       buttons:
         - name: 归档
@@ -90,7 +90,7 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Attack on page-boy - https://genffy.com/"
+  description: "Page-boy - https://genffy.com/"
   author: genffy
   defaultTheme: auto
   # disableThemeToggle: true
@@ -140,7 +140,7 @@ params:
 
   assets:
     # disableHLJS: false
-    favicon: "images/mbox_avatar.jpeg"
+    favicon: "https://static.genffy.com/blog/mbox_avatar.jpeg"
 
   # cover:
   #     hidden: true # hide everywhere but not in structured data

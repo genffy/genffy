@@ -1,3 +1,4 @@
+// WIP: upload all images to oss
 import fs from 'node:fs'
 import path from 'node:path'
 import * as dotenv from 'dotenv'
@@ -6,7 +7,7 @@ import OSS from 'ali-oss';
 
 dotenv.config()
 
-const { ALI_OSS_REGION, ALI_OSS_KEY_ID, ALI_OSS_KEY_SECRET, ALI_OSS_BUCKET } = process.env;
+const { ALI_OSS_REGION, ALI_OSS_KEY_ID, ALI_OSS_KEY_SECRET, ALI_OSS_BUCKET, ALI_OSS_DOMAIN } = process.env;
 
 if (!ALI_OSS_REGION || !ALI_OSS_KEY_ID || !ALI_OSS_KEY_SECRET || !ALI_OSS_BUCKET) {
   throw Error('pls config oss');
@@ -17,37 +18,78 @@ const client = new OSS({
   accessKeyId: ALI_OSS_KEY_ID,
   accessKeySecret: ALI_OSS_KEY_SECRET,
   bucket: ALI_OSS_BUCKET,
+  secure: true,
 });
 
 // scan all `md` file collect `relative` static files
-const folders = ['content', 'partials', 'archetypes', '__test__']
+const folders = ['content', 'partials', 'archetypes']
 fg(folders.map(f => `${f}/**/*.md`), { dot: true }).then((entries) => {
   entries.forEach(md => {
     const filePath = `${process.cwd()}/${md}`;
-    fs.readFile(filePath, (err, data) => {
+    fs.readFile(filePath, async (err, data) => {
       // if there's an error, log it and return
       if (err) {
         console.error(err)
         return
       }
       let content = data.toString();
-      const matches = content.match(/(!\[.*?\]\()(.+?)(\))/g);
-      if (matches) {
-        const imagePaths = matches.map(match => match.match(/!\[.*?\]\((.*?)\)/)[1]).filter(u => {
-          return (u.startsWith("./") || u.startsWith("../"))
-        });
-        if (imagePaths && imagePaths.length > 0) {
-          // upload it to cdn and replace it with CDN url
-          imagePaths.forEach(async (file) => {
-            const { url, res } = await client.put(path.basename(file), path.join(path.dirname(filePath), file)/** ,{headers} */);
-            console.log('res', url)
-            if (res && res.status === 200) {
-              content = content.replace(new RegExp(file, 'g'), url);
-              fs.writeFileSync(filePath, content, "utf8");
-            }
-          })
+      // get content images
+      const imagePaths = getAllImagesPathFromMarkdownContentStartWithRelativePath(content);
+      console.log(imagePaths)
+      if (imagePaths && imagePaths.length > 0) {
+        // upload it to cdn and replace it with CDN url
+        imagePaths.forEach(async (imgPath) => {
+          let { url, res } = await client.put(`blog/${path.basename(imgPath)}`, path.join(path.dirname(filePath), imgPath)/** ,{headers} */);
+          if (ALI_OSS_DOMAIN) {
+            url = url.replace(`${ALI_OSS_BUCKET}.${ALI_OSS_REGION}.aliyuncs.com`, ALI_OSS_DOMAIN)
+          }
+          if (res && res.status === 200) {
+            content = content.replace(new RegExp(imgPath, 'g'), url);
+            fs.writeFileSync(filePath, content, "utf8");
+          }
+        })
+      }
+      // get meta image
+      const metaImagePath = getImagePathFromStringStartWithImages(content);
+      if (metaImagePath) {
+        const imgPath = path.join(`${process.cwd()}/static/`, metaImagePath)
+        // upload it to cdn and replace it with CDN url
+        let { url, res } = await client.put(`blog/${path.basename(imgPath)}`, imgPath);
+        if (ALI_OSS_DOMAIN) {
+          url = url.replace(`${ALI_OSS_BUCKET}.${ALI_OSS_REGION}.aliyuncs.com`, ALI_OSS_DOMAIN)
+        }
+        if (res && res.status === 200) {
+          content = content.replace(new RegExp(metaImagePath, 'g'), url);
+          fs.writeFileSync(filePath, content, "utf8");
         }
       }
     })
   })
 });
+
+function getImagePathFromStringStartWithImages(str) {
+  const regex = /image: "(images\/.*?)"/g;
+  const matches = regex.exec(str);
+  if (matches && matches.length > 1) {
+    return matches[1];
+  }
+  return null;
+}
+
+function getAllImagesPathFromMarkdownMetaStartWithRelativePath(str) {
+  const regex = /image: "(.*?)"/g;
+  const matches = str.match(regex);
+  if (matches && matches.length > 1) {
+    return matches;
+  }
+  return null;
+}
+
+function getAllImagesPathFromMarkdownContentStartWithRelativePath(str) {
+  const regex = /!\[.*?\]\((\.\.\/.*?)\)/g;
+  const matches = str.match(regex);
+  if (matches && matches.length > 1) {
+    return matches;
+  }
+  return null;
+}
