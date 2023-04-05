@@ -2,3 +2,11 @@
   <a href="https://beian.miit.gov.cn/" class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3"
     target="_blank">浙ICP备2023001307号-1</a>
 </footer>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+  await mermaid.run({
+    querySelector: '.language-mermaid',
+  });
+</script>
