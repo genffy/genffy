@@ -17,8 +17,8 @@ taxonomies:
   category: categories
   tag: tags
   series: series
-permalinks:
-  posts: /:year/:month/:title/
+# permalinks:
+#   posts: /:year/:month/:title/
 
 minify:
   disableXML: true

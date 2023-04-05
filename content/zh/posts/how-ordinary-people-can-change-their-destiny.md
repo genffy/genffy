@@ -1,12 +1,12 @@
 ---
-title: "📒是什么一直束缚你在社会底层？"
+title: 📒是什么一直束缚你在社会底层？
 date: 2023-04-05T21:14:31+08:00
 draft: false
-author: "genffy"
-description: ""
-tags: ["video", "summary"]
-categories: ["假期干啥了"]
-series: [""]
+author: genffy
+description: 
+tags: [video, summary]
+categories: [假期干啥了]
+series: []
 ShowToc: true
 TocOpen: false
 ---
