@@ -18,22 +18,6 @@ jobs:
       with:
         submodules: recursive
 
-    # - name: Set up Go
-    #   uses: actions/setup-go@v3
-    #   with:
-    #     go-version: 1.19
-
-    # - name: Build
-    #   run: go build -v ./...
-
-    # - name: Test
-    #   run: go test -v ./...
-#     - name: Git Sumbodule Update
-#       run: |
-#         git pull --recurse-submodules
-#         git submodule update --remote --recursive
-#         ls -la
-
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
@@ -43,28 +27,21 @@ jobs:
     - name: Build
       run: hugo --minify
 
-    # - name: Deploy
-    #   uses: peaceiris/actions-gh-pages@v3
-    #   if: github.ref == 'refs/heads/main'
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: ./public
-
     - name: Prepare SSH
       run: >
         cd ~ && mkdir .ssh &&
         touch ~/.ssh/known_hosts &&
         ssh-keyscan -H "$IP" >>~/.ssh/known_hosts
       env:
-        IP: ${{ secrets.ALIYUN_SERVER_HOST }}
+        IP: ${{ vars.TENCENT_SERVER_HOST }}
 
     - name: Deploy to aliyun server
       uses: easingthemes/ssh-deploy@main
 
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_SERVER_ACCESS_TOKEN }}
+        SSH_PRIVATE_KEY: ${{ secrets.TENCENT_SERVER_ACCESS_TOKEN }}
         ARGS: "-rltgoDzvO --delete --chown=root:root"
         SOURCE: "public/"
         REMOTE_HOST: ${{ secrets.ALIYUN_SERVER_HOST }}
         REMOTE_USER: "root"
-        TARGET: "/apps/genffy-out/"
+        TARGET: "/opt/apps/genffy-out/"
