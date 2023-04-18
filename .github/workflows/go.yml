@@ -42,6 +42,6 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.TENCENT_SERVER_ACCESS_TOKEN }}
         ARGS: "-rltgoDzvO --delete --chown=root:root"
         SOURCE: "public/"
-        REMOTE_HOST: ${{ secrets.ALIYUN_SERVER_HOST }}
+        REMOTE_HOST: ${{ vars.TENCENT_SERVER_HOST }}
         REMOTE_USER: "root"
         TARGET: "/opt/apps/genffy-out/"
