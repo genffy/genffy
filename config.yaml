@@ -48,8 +48,12 @@ languages:
           weight: 5
         - identifier: snippet
           name: Snippets
-          url: snippet
+          url: https://logseq.genffy.com/#/page/code-snippet
           weight: 10
+        - identifier: algorithm
+          name: Algorithm
+          url: https://logseq.genffy.com/#/page/algorithm
+          weight: 15
         - identifier: about
           name: About
           url: about
@@ -76,8 +80,12 @@ languages:
           weight: 5
         - identifier: snippet
           name: 代码片段
-          url: snippet
+          url: https://logseq.genffy.com/#/page/code-snippet
           weight: 10
+        - identifier: algorithm
+          name: 算法
+          url: https://logseq.genffy.com/#/page/algorithm
+          weight: 15
         - identifier: about
           name: 关于
           url: about
