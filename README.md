@@ -1,9 +1,10 @@
 ### Hi there 👋
-![visitors](https://visitor-badge.glitch.me/badge?page_id=genffy.genffy&left_color=green&right_color=red)       
-💻 A web developer 🏃 
-<!-- ![Genffy's GitHub stats](https://github-readme-stats.vercel.app/api?username=genffy&theme=prussian&show_icons=true&count_private=true&hide_border=true) -->     
-<!-- ![Genffy's GitHub Top-langs](https://github-readme-stats.vercel.app/api/top-langs/?username=genffy&layout=compact&theme=prussian) -->       
-<!-- ![Genffy's GitHub Activity](https://activity-graph.herokuapp.com/graph?username=genffy&theme=github) -->            
+
+- 💻 A web developer
+- 🏋️ Marathon & Trail runner 🏃, trying rock climbing 🧗
+- 🌱 I’m currently learning something about AI 🤖️
+
+![Genffy's GitHub stats](https://github-readme-stats.vercel.app/api?username=genffy&theme=prussian&show_icons=true&count_private=true&hide_border=true)      
 
 <!--
 **genffy/genffy** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
