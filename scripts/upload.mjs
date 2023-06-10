@@ -76,14 +76,6 @@ function getImagePathFromStringStartWithImages(str) {
   return null;
 }
 
-function getAllImagesPathFromMarkdownMetaStartWithRelativePath(str) {
-  const regex = /image: "(.*?)"/g;
-  const matches = str.match(regex);
-  if (matches && matches.length > 1) {
-    return matches;
-  }
-  return null;
-}
 
 function getAllImagesPathFromMarkdownContentStartWithRelativePath(str) {
   const regex = /!\[.*?\]\((\.\.\/.*?)\)/g;

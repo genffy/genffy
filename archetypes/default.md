@@ -7,7 +7,6 @@ description: ""
 tags: ["markdown"]
 categories: ["themes"]
 series: ["Themes Guide"]
-aliases: ["migrate-from-jekyl"]
 ShowToc: true
 TocOpen: false
 ---
