@@ -33,7 +33,7 @@ languages:
     profileMode:
       enabled: true
       title: Page-boy
-      imageUrl: "/images/mbox_avatar.jpeg"
+      imageUrl: "/images/genffy.jpeg"
       imageTitle: genffy
       buttons:
         - name: Archives
@@ -65,7 +65,7 @@ languages:
     profileMode:
       enabled: true
       title: 进击的页面仔
-      imageUrl: "/images/mbox_avatar.jpeg"
+      imageUrl: "/images/genffy.jpeg"
       imageTitle: genffy
       buttons:
         - name: 归档
@@ -148,7 +148,7 @@ params:
 
   assets:
     # disableHLJS: false
-    favicon: "/images/mbox_avatar.jpeg"
+    favicon: "/images/genffy-108.png"
 
   # cover:
   #     hidden: true # hide everywhere but not in structured data
