@@ -2,11 +2,75 @@
   <a href="https://beian.miit.gov.cn/" class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3"
     target="_blank">浙ICP备2023001307号-1</a>
 </footer>
-
+<script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script>
+  (async function () {
+    if (!/MicroMessenger/i.test(window.navigator.userAgent)) {
+      return false;
+    }
+    let configData;
+    try {
+      configData = await fetch('/api/third-auth/wx/config', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          url: location.href
+        })
+      }).then(res => res.json());
+    } catch (e) {
+      console.log('get wx config error', e);
+    }
+    if (!configData) {
+      return;
+    }
+    console.log(configData)
+    const { timestamp, nonceStr, signature } = configData;
+    wx.config({
+      debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+      appId: 'wx41fc0b9b9851eb11', // 必填，公众号的唯一标识
+      timestamp, // 必填，生成签名的时间戳
+      nonceStr, // 必填，生成签名的随机串
+      signature,// 必填，签名
+      jsApiList: [
+        'updateAppMessageShareData'
+      ] // 必填，需要使用的JS接口列表
+    });
+    wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+      let img = document.querySelector("link[rel*='icon']").href
+      if (document.getElementsByClassName('for-share')[0]) {
+        img = document.getElementsByClassName('for-share')[0].src;
+      } else if (document.getElementsByTagName('img')[0]) {
+        img = document.getElementsByTagName('img')[0].src;
+      }
+      let description = '';
+      if (document.querySelector('meta[name="description"]')) {
+        description = document.querySelector('meta[name="description"]').getAttribute('content');
+      }
+      wx.updateAppMessageShareData({
+        title: document.title, // 分享标题
+        desc: description, // 分享描述
+        link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: img, // 分享图标
+        success: function () {
+          // 设置成功
+        }
+      })
+    });
+  })();
+</script>
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
-  await mermaid.run({
-    querySelector: '.language-mermaid',
-  });
+  try {
+    mermaid.initialize({ startOnLoad: true });
+    await mermaid.run({
+      querySelector: '.language-mermaid',
+    });
+  } catch (e) {
+    console.error('load mermaid error')
+  }
 </script>

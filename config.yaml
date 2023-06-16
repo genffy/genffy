@@ -148,11 +148,11 @@ params:
 
   assets:
     # disableHLJS: false
-    favicon: "/images/genffy-108.png"
+    favicon: "/images/genffy.png"
     favicon16x16: "/images/genffy-16.png"
     favicon32x32: "/images/genffy-32.png"
-    apple_touch_icon: "/images/genffy-108.png"
-    safari_pinned_tab: "/images/genffy-108.png"
+    apple_touch_icon: "/images/genffy.png"
+    safari_pinned_tab: "/images/genffy.png"
 
   # cover:
   #     hidden: true # hide everywhere but not in structured data

@@ -10,7 +10,7 @@ series: []
 ShowToc: true
 TocOpen: false
 cover:
-  image: "/images/sse-what-why-how.webp"
+  image: "/images/sse-what-why-how.png"
   alt: "SSE What Why How"
   caption: ""
   relative: false # To use relative path for cover image, used in hugo Page-bundles

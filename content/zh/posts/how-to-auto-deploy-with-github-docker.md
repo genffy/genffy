@@ -10,7 +10,7 @@ series: ["Themes Guide"]
 ShowToc: true
 TocOpen: false
 cover:
-  image: "/images/how-to-auto-deploy-with-github-docker-banner.svg"
+  image: "/images/how-to-auto-deploy-with-github-docker-banner.png"
   alt: "SSE What Why How"
   caption: ""
   relative: false # To use relative path for cover image, used in hugo Page-bundles
