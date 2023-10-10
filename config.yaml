@@ -30,16 +30,17 @@ languages:
     weight: 1
     title: Page-boy
     contentDir: "content/en"
-    profileMode:
-      enabled: true
-      title: Page-boy
-      imageUrl: "/images/genffy.jpeg"
-      imageTitle: genffy
-      buttons:
-        - name: Archives
-          url: archives
-        - name: Tags
-          url: tags
+    params:
+      profileMode:
+        enabled: true
+        title: Page-boy
+        imageUrl: "/images/genffy.jpeg"
+        imageTitle: genffy
+        buttons:
+          - name: Archives
+            url: archives
+          - name: Tags
+            url: tags
     menu:
       main:
         - identifier: posts
@@ -62,16 +63,17 @@ languages:
     title: 进击的页面仔
     languageName: "ZH"
     contentDir: "content/zh"
-    profileMode:
-      enabled: true
-      title: 进击的页面仔
-      imageUrl: "/images/genffy.jpeg"
-      imageTitle: genffy
-      buttons:
-        - name: 归档
-          url: archives
-        - name: 标签
-          url: tags
+    params:
+      profileMode:
+        enabled: true
+        title: 进击的页面仔
+        imageUrl: "/images/genffy.jpeg"
+        imageTitle: genffy
+        buttons:
+          - name: 归档
+            url: archives
+          - name: 标签
+            url: tags
     menu:
       main:
         - identifier: posts
