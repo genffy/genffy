@@ -1,12 +1,12 @@
 ---
-title: "High Output Management"
+title: "格鲁夫给经理人的第一课"
 date: 2023-10-25T23:31:42+08:00
 draft: false
 author: "genffy"
 description: ""
-tags: ["markdown"]
+tags: ["格鲁夫", "管理"]
 categories: ["themes"]
-series: ["Themes Guide"]
+series: ["阅读"]
 ShowToc: true
 TocOpen: false
 ---
