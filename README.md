@@ -1,7 +1,7 @@
 ### Hi there 👋
 
 - 💻 A web developer
-- 🏋️ Marathon & Trail runner 🏃, trying rock climbing 🧗
+- 🏋️ Marathon & Trail runner 🏃, Swim 🏊
 - 🌱 I’m currently learning something about AI 🤖️
 
 <!--
