@@ -4,7 +4,7 @@ date: 2023-01-16T18:05:16+08:00
 draft: false
 ---
 ## git
-### delete all local branch expcet master
+### delete all local branch except master
 `git branch | grep -v -E 'master' | xargs git branch -D`
 ### git revert commit
 `git reset --soft HEAD^`

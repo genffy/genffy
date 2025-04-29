@@ -1,6 +1,12 @@
 baseURL: "https://genffy.com" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
 title: "进击的页面仔 | Page-boy"
-paginate: 10
+pagination:
+  perPage: 10
+  archive:
+    yearly: true
+    monthly: true
+    daily: true
+    
 theme: PaperMod
 defaultContentLanguage: zh
 resourceDir: ../resources
@@ -187,7 +193,7 @@ privacy:
     disabled: false
     simple: true
 
-  twitter:
+  x:
     disabled: false
     enableDNT: true
     simple: true
@@ -203,5 +209,5 @@ privacy:
 services:
   instagram:
     disableInlineCSS: true
-  twitter:
+  x:
     disableInlineCSS: true

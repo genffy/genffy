@@ -19,7 +19,7 @@ hugo new content/en/posts/test.md
 hugo --printI18nWarnings | grep i18n
 ```
 
-## relace staic files with oss url
+## replace static files with oss url
 <del>- upload static file to cdn and replace with cdn url</del>
 ```javascript
 npm run static
