@@ -21,7 +21,7 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.105.0'
+        hugo-version: '0.147.0'
         extended: true
 
     - name: Build
@@ -35,13 +35,13 @@ jobs:
       env:
         IP: ${{ vars.TENCENT_SERVER_HOST }}
 
-    - name: Deploy to aliyun server
-      uses: easingthemes/ssh-deploy@main
+    # - name: Deploy to aliyun server
+    #   uses: easingthemes/ssh-deploy@main
 
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.TENCENT_SERVER_ACCESS_TOKEN }}
-        ARGS: "-rltgoDzvO --delete --chown=root:root"
-        SOURCE: "public/"
-        REMOTE_HOST: ${{ vars.TENCENT_SERVER_HOST }}
-        REMOTE_USER: "root"
-        TARGET: "/opt/apps/genffy-out/"
+    #   env:
+    #     SSH_PRIVATE_KEY: ${{ secrets.TENCENT_SERVER_ACCESS_TOKEN }}
+    #     ARGS: "-rltgoDzvO --delete --chown=root:root"
+    #     SOURCE: "public/"
+    #     REMOTE_HOST: ${{ vars.TENCENT_SERVER_HOST }}
+    #     REMOTE_USER: "root"
+    #     TARGET: "/opt/apps/genffy-out/"
