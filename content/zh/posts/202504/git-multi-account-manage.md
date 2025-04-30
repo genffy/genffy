@@ -1,5 +1,5 @@
 ---
-title: "Git Multi Account Manage"
+title: "git 多账号管理"
 date: 2025-04-29T19:22:56+08:00
 draft: false
 author: "genffy"

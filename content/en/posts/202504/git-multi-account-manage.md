@@ -4,7 +4,7 @@ date: 2025-04-29T19:22:56+08:00
 draft: false
 author: "genffy"
 description: "Manage multiple Git accounts efficiently using SSH and Git config includes. Covers SSH key management, workspace-based Git identities, and a wrapper script for seamless workflow."
-tags: ["git", "ssh", "multiple accounts", "git config", "ssh config", "developer workflow", "github", "gitlab", "productivity", "shell script"]
+tags: ["git", "ssh", "multiple accounts", "git config", "ssh config", "developer workflow", "github", "gitlab", "shell script"]
 categories: ["Git", "Developer Tools", "Version Control", "Workflow Automation"]
 series: ["git"]
 ShowToc: true

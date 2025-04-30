@@ -2,5 +2,4 @@
 	path = themes/PaperMod
 	url = https://github.com/adityatelange/hugo-PaperMod.git
 	branch = master
-  ignore = all
 
