@@ -21,7 +21,7 @@ jobs:
       - name: Auth GitHub CLI
         env:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: gh auth login --with-token <<< "$GH_TOKEN"
+        run: echo "${{ secrets.PAT_TOKEN }}" | gh auth login --with-token
 
       - name: Run sync script
         run: bash scripts/fork-sync.sh
