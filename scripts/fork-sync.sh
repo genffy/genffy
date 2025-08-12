@@ -10,13 +10,12 @@ while read repo; do
   echo "🔍 检查 $repo ..."
 
   # 获取仓库状态
-  repo_info=$(gh repo view "$repo" --json isArchived,isDisabled --jq '{archived: .isArchived, disabled: .isDisabled}')
+  repo_info=$(gh repo view "$repo" --json isArchived --jq '{archived: .isArchived}')
   is_archived=$(echo "$repo_info" | jq -r '.archived')
-  is_disabled=$(echo "$repo_info" | jq -r '.disabled')
 
   # 跳过只读/失效仓库
-  if [[ "$is_archived" == "true" || "$is_disabled" == "true" ]]; then
-    echo "⏩ 跳过（archived 或 disabled）: $repo"
+  if [[ "$is_archived" == "true" ]]; then
+    echo "⏩ 跳过（archived）: $repo"
     continue
   fi
 
