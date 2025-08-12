@@ -19,8 +19,6 @@ jobs:
           sudo apt-get install gh -y
 
       - name: Auth GitHub CLI
-        env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: echo "${{ secrets.PAT_TOKEN }}" | gh auth login --with-token
 
       - name: Run sync script
