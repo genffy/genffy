@@ -19,6 +19,7 @@ buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
 # googleAnalytics: UA-123-45
+copyright: "&copy; 2026 <a href=\"https://genffy.com\">进击的页面仔</a>"
 taxonomies:
   category: categories
   tag: tags
