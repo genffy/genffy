@@ -133,7 +133,7 @@ params:
     - name: github
       url: "https://github.com/genffy"
     - name: x
-      url: "https://x.com/0xgenffy"
+      url: "https://x.com/genffy"
     - name: Rss
       url: "index.xml"
 
