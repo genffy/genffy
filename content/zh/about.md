@@ -7,8 +7,7 @@ ShowToc: false
 hideMeta: true
 ---
 你好 👋  
-网络上 ID 是 `genffy`，真名 `李正飞`    
-本职工作是页面仔(Front-end Developer)，希望成为一个工程师          
+网络 ID 是 `genffy`，一个开发者    
 日常运动是跑步，偶尔游泳，骑车
 ## MBTI
 <a href="https://www.16personalities.com/ch/intj-%E4%BA%BA%E6%A0%BC" target="_blank">INTJ</a>
