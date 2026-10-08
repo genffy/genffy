@@ -1,5 +1,5 @@
 baseURL: "https://genffy.com" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
-title: "进击的页面仔 | Page-boy"
+title: "进击的页面仔 | genffy"
 pagination:
   perPage: 10
   archive:
@@ -35,12 +35,12 @@ languages:
   en:
     languageName: "EN"
     weight: 1
-    title: Page-boy
+    title: genffy
     contentDir: "content/en"
     params:
       profileMode:
         enabled: true
-        title: Page-boy
+        title: genffy
         imageUrl: "/images/genffy.jpeg"
         imageTitle: genffy
         buttons:
@@ -54,14 +54,10 @@ languages:
           name: Posts
           url: posts
           weight: 5
-        - identifier: snippet
-          name: Snippets
-          url: https://logseq.genffy.com/#/page/code-snippet
+        - identifier: share
+          name: Share
+          url: https://share.genffy.com/
           weight: 10
-        - identifier: algorithm
-          name: Algorithm
-          url: https://logseq.genffy.com/#/page/algorithm
-          weight: 15
         - identifier: about
           name: About
           url: about
@@ -87,14 +83,10 @@ languages:
           name: 文章
           url: posts
           weight: 5
-        - identifier: snippet
-          name: 代码片段
-          url: https://logseq.genffy.com/#/page/code-snippet
+        - identifier: share
+          name: 分享
+          url: https://share.genffy.com/
           weight: 10
-        - identifier: algorithm
-          name: 算法
-          url: https://logseq.genffy.com/#/page/algorithm
-          weight: 15
         - identifier: about
           name: 关于
           url: about
@@ -107,7 +99,7 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Page-boy - https://genffy.com/"
+  description: "genffy - https://genffy.com/"
   author: genffy
   defaultTheme: auto
   # disableThemeToggle: true
