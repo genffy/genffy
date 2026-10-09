@@ -1,0 +1,11 @@
+{{- /* Overrides themes/PaperMod/layouts/_partials/social_icons.html.
+       The only change: an entry may carry its own inline `svg`, for platforms the theme has no icon for
+       (Xiaohongshu). Everything else is the theme's markup. */ -}}
+<div class="social-icons" {{ with .align}}align="{{.}}" {{- end }}>
+    {{- range site.Params.socialIcons }}
+    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
+        title="{{ (.title | default .name) | title }}">
+        {{ with .svg }}{{ . | safeHTML }}{{ else }}{{ partial "svg.html" . }}{{ end }}
+    </a>
+    {{- end }}
+</div>

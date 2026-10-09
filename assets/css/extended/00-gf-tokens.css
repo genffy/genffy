@@ -1,0 +1,28 @@
+/* genffy brand tokens v1.0.0 - generated from the genffy brand kit's tokens.json (kept outside this repo). Do not edit by hand. */
+:root {
+  --gf-red: #E5363B;
+  --gf-red-ink: #D01F25;
+  --gf-yellow: #FFD93D;
+  --gf-blue: #0B4DA8;
+  --gf-red-dark: #F0555A;
+  --gf-blue-dark: #5B9BFF;
+  --gf-paper: #F6F1E7;
+  --gf-paper-deep: #EDE5D3;
+  --gf-paper-raised: #FBF8F1;
+  --gf-rule: #D9D0BE;
+  --gf-ink: #29241C;
+  --gf-muted: #6B6256;
+  --gf-asphalt-black: #1B1917;
+  --gf-asphalt-deep: #23201E;
+  --gf-asphalt-raised: #262321;
+  --gf-asphalt: #35312C;
+  --gf-asphalt-rule: #3A352F;
+  --gf-bone: #F2ECDF;
+  --gf-dim: #A39A8B;
+  --gf-white: #FFFFFF;
+  --gf-text-soft: #3A342B;
+  --gf-text-soft-dark: #DDD6C8;
+  --gf-radius: 12px;
+  --gf-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --gf-font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+}

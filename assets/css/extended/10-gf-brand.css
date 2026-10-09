@@ -1,0 +1,102 @@
+/* genffy brand layer for PaperMod.
+ * Tokens (--gf-*) come from 00-gf-tokens.css, generated from the brand kit's tokens.json (kept outside this repo). This file only
+ * maps them onto PaperMod's variables and adds a few signature details. Flat colour, no gradients. */
+
+:root {
+  --gf-link: var(--gf-blue);
+
+  /* PaperMod variables: cream paper */
+  --theme: var(--gf-paper);
+  --entry: var(--gf-paper-raised);
+  --primary: var(--gf-ink);
+  --secondary: var(--gf-muted);
+  --tertiary: var(--gf-rule);
+  --content: var(--gf-text-soft);
+  --code-block-bg: var(--gf-asphalt-deep);
+  --code-bg: var(--gf-paper-deep);
+  --border: var(--gf-rule);
+  --radius: var(--gf-radius);
+}
+
+:root[data-theme="dark"] {
+  --gf-link: var(--gf-blue-dark);
+
+  /* PaperMod variables: wet asphalt */
+  --theme: var(--gf-asphalt-black);
+  --entry: var(--gf-asphalt-raised);
+  --primary: var(--gf-bone);
+  --secondary: var(--gf-dim);
+  --tertiary: var(--gf-asphalt-rule);
+  --content: var(--gf-text-soft-dark);
+  --code-block-bg: var(--gf-asphalt-raised);
+  --code-bg: #2B2825;
+  --border: var(--gf-asphalt-rule);
+}
+
+/* the toy's three colours, in the toy's proportion: a 4px stripe on top of every page */
+body::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg,
+      var(--gf-red) 0 62%,
+      var(--gf-yellow) 62% 88%,
+      var(--gf-blue) 88% 100%);
+}
+
+::selection {
+  background: var(--gf-yellow);
+  color: var(--gf-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gf-link);
+  outline-offset: 2px;
+}
+
+/* links: base blue (readable on paper and on asphalt); headings and chrome stay neutral */
+.post-content a,
+.post-description a {
+  color: var(--gf-link);
+}
+
+/* header logo: the photo, whole, as a rounded square */
+.logo a img {
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+/* home: the avatar photo with the signature hard red shadow (same device as the OG / X / Xiaohongshu images) */
+.profile_inner img {
+  box-shadow: 8px 8px 0 var(--gf-red);
+}
+
+.profile_inner h1 {
+  letter-spacing: 0.02em;
+}
+
+.profile_inner > span {
+  color: var(--secondary);
+  font-size: 1.05rem;
+}
+
+/* buttons: ink pills */
+.button {
+  background: var(--gf-ink);
+  color: var(--gf-paper);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+}
+
+:root[data-theme="dark"] .button {
+  background: var(--gf-bone);
+  color: var(--gf-asphalt-black);
+}
+
+.social-icons a:hover {
+  color: var(--gf-red-ink);
+}
+
+:root[data-theme="dark"] .social-icons a:hover {
+  color: var(--gf-red-dark);
+}

@@ -38,9 +38,11 @@ languages:
     title: genffy
     contentDir: "content/en"
     params:
+      description: "genffy's personal site: embodied AI, crypto and development. A weekly embodied-AI digest (in Chinese) every Friday."
       profileMode:
         enabled: true
         title: genffy
+        subtitle: "Embodied AI · Crypto · Dev"
         imageUrl: "/images/genffy.jpeg"
         imageTitle: genffy
         buttons:
@@ -67,9 +69,11 @@ languages:
     languageName: "ZH"
     contentDir: "content/zh"
     params:
+      description: "进击的页面仔（genffy）的个人站：具身智能、Crypto 与开发。每周五更新《页面仔的具身智能周报》。"
       profileMode:
         enabled: true
         title: 进击的页面仔
+        subtitle: "具身智能 · Crypto · 开发"
         imageUrl: "/images/genffy.jpeg"
         imageTitle: genffy
         buttons:
@@ -99,8 +103,12 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "genffy - https://genffy.com/"
+  description: "进击的页面仔 / genffy - 具身智能 · Crypto · 开发"
   author: genffy
+  # site-wide fallback for og:image / twitter:image (also switches twitter:card to summary_large_image)
+  images: ["/brand/og-default.jpg"]
+  social:
+    twitter: genffy
   defaultTheme: auto
   # disableThemeToggle: true
   ShowShareButtons: true
@@ -126,6 +134,11 @@ params:
       url: "https://github.com/genffy"
     - name: x
       url: "https://x.com/genffy"
+    # Xiaohongshu: the theme has no icon for it, so the entry carries its own svg (Tabler "notebook", MIT)
+    - name: xiaohongshu
+      title: 小红书
+      url: "https://xhslink.cn/o/8gsjxZ2Ewbd"
+      svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" /><path d="M13 8l2 0" /><path d="M13 12l2 0" /></svg>'
     - name: Rss
       url: "index.xml"
 
@@ -134,10 +147,10 @@ params:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
-  # label:
-  #     text: "Home"
-  #     icon: icon.png
-  #     iconHeight: 35
+  # header logo: the avatar photo (whole frame, resized) in front of the site title
+  label:
+    icon: "/brand/icon-112.png"
+    iconHeight: 28
 
   # analytics:
   #     google:
@@ -145,11 +158,15 @@ params:
 
   assets:
     # disableHLJS: false
-    favicon: "/images/genffy.png"
-    favicon16x16: "/images/genffy-16.png"
-    favicon32x32: "/images/genffy-32.png"
-    apple_touch_icon: "/images/genffy.png"
-    safari_pinned_tab: "/images/genffy.png"
+    # all derived from static/images/genffy.jpeg (whole frame, only resized) by the genffy brand kit, which is kept outside this repo
+    # (previously /images/genffy.png, which never existed -> 404)
+    favicon: "/brand/favicon.ico"
+    favicon16x16: "/brand/favicon-16.png"
+    favicon32x32: "/brand/favicon-32.png"
+    apple_touch_icon: "/brand/apple-touch-icon.png"
+    safari_pinned_tab: "/brand/icon-192.png" # legacy hook; a PNG is ignored by Safari but avoids a 404
+    theme_color: "#F6F1E7"
+    msapplication_TileColor: "#1B1917"
 
   # cover:
   #     hidden: true # hide everywhere but not in structured data

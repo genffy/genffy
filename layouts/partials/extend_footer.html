@@ -37,11 +37,12 @@
       ] // 必填，需要使用的JS接口列表
     });
     wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
-      let img = document.querySelector("link[rel*='icon']").href
+      // 分享图优先级：.for-share > 正文第一张图 > 品牌方图（300x300，原图缩放）
+      let img = location.origin + '/brand/wx-share-300.jpg'
       if (document.getElementsByClassName('for-share')[0]) {
         img = document.getElementsByClassName('for-share')[0].src;
-      } else if (document.getElementsByTagName('img')[0]) {
-        img = document.getElementsByTagName('img')[0].src;
+      } else if (document.querySelector('.post-content img')) {
+        img = document.querySelector('.post-content img').src;
       }
       let description = '';
       if (document.querySelector('meta[name="description"]')) {
