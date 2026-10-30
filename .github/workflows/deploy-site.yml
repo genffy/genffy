@@ -1,0 +1,67 @@
+name: Deploy site
+
+# push main 即构建并部署到 Cloudflare Workers(genffy.com + www);
+# 首次启用前需配好 repo secrets/vars(见 share2earn/docs/cf-migration-sop.md),未启用时 job 直接跳过。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build & deploy
+    if: vars.SITE_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment: site-production
+    steps:
+      - name: Check out (with theme submodule)
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          submodules: recursive
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.147.0'
+          extended: true
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        # 版本读 package.json 的 packageManager 字段
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Deploy to Cloudflare Workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: pnpm exec wrangler deploy
+
+      - name: Smoke check production
+        run: |
+          set -euo pipefail
+          for p in "/" "/sitemap.xml" "/zh/" "/posts/"; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "https://genffy.com$p")
+            echo "$p -> $code"
+            [ "$code" = "200" ] || { echo "FAIL: $p"; exit 1; }
+          done

@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "genffy-site",
+  "compatibility_date": "2026-10-13",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "genffy.com", "custom_domain": true },
+    { "pattern": "www.genffy.com", "custom_domain": true }
+  ],
+  "env": {
+    "preview": {
+      "name": "genffy-site-preview",
+      "routes": []
+    }
+  }
+}
