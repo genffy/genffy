@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "blog",
   "main": "index.js",
+  "packageManager": "pnpm@9.4.0",
   "scripts": {
     "hsk": "husky install",
     "dev": "hugo server",
