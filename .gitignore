@@ -4,3 +4,6 @@
 node_modules
 
 public
+
+# wrangler 本地状态
+.wrangler/
