@@ -68,6 +68,9 @@ languages:
     title: 进击的页面仔
     languageName: "ZH"
     contentDir: "content/zh"
+    # the default language owns the site root, so only it publishes /.well-known/security.txt
+    outputs:
+      home: [HTML, RSS, JSON, securitytxt]
     params:
       description: "进击的页面仔（genffy）的个人站：具身智能、Crypto 与开发。每周五更新《页面仔的具身智能周报》。"
       profileMode:
@@ -94,6 +97,15 @@ languages:
         - identifier: about
           name: 关于
           url: about
+
+# /.well-known/security.txt (RFC 9116), rendered from layouts/home.securitytxt.txt
+outputFormats:
+  securitytxt:
+    mediaType: text/plain
+    path: .well-known
+    baseName: security
+    isPlainText: true
+    notAlternative: true
 
 outputs:
   home:

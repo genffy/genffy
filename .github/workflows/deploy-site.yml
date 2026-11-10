@@ -65,3 +65,22 @@ jobs:
             echo "$p -> $code"
             [ "$code" = "200" ] || { echo "FAIL: $p"; exit 1; }
           done
+
+      - name: Check security.txt and security headers
+        # static/_headers 与 layouts/home.securitytxt.txt 的线上回归检查;
+        # 新版本全球生效有秒级延迟,所以整体重试几次
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4 5 6; do
+            [ "$attempt" = 1 ] || { echo "retrying in 10s (attempt $attempt/6)"; sleep 10; }
+            ok=true
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "https://genffy.com/.well-known/security.txt" || true)
+            [ "$code" = "200" ] || { echo "security.txt -> $code"; ok=false; }
+            headers=$(curl -s -o /dev/null -D - --max-time 30 "https://genffy.com/" || true)
+            for h in strict-transport-security x-content-type-options content-security-policy; do
+              grep -qi "^$h:" <<<"$headers" || { echo "missing response header: $h"; ok=false; }
+            done
+            if $ok; then echo "security.txt + security headers OK"; exit 0; fi
+          done
+          echo "FAIL: security.txt / security headers not live"
+          exit 1

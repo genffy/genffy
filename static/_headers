@@ -1,0 +1,21 @@
+# Response headers for every static asset the Worker serves (Cloudflare Workers Static Assets).
+# Hugo copies this file to public/_headers; wrangler parses it on deploy and never publishes it.
+# https://developers.cloudflare.com/workers/static-assets/headers/
+#
+# Content-Security-Policy:
+# - 'unsafe-inline' is needed by PaperMod's inline scripts and styles.
+# - Third-party script hosts: giscus.app (comments), cdn.jsdelivr.net (mermaid), res.wx.qq.com (WeChat JS-SDK);
+#   see layouts/partials/comments.html and extend_footer.html. A new third-party script needs an entry here.
+# - giscus.app is also a style source: its client.js adds https://giscus.app/default.css to the page.
+# - Images, frames and media may come from any https origin, so embedding a video or an external image
+#   in a post keeps working without touching this file.
+#
+# Strict-Transport-Security deliberately has no includeSubDomains/preload: that is a decision for the
+# whole zone (every *.genffy.com host), not for this site.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://cdn.jsdelivr.net https://res.wx.qq.com; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-src https:; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
