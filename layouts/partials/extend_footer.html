@@ -1,4 +1,3 @@
-<script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
 <script>
   (async function () {
     if (!/MicroMessenger/i.test(window.navigator.userAgent)) {
@@ -22,6 +21,20 @@
       console.log('get wx config error', e);
     }
     if (!configData) {
+      return;
+    }
+    // The WeChat JS-SDK is only fetched here: inside WeChat, once there is a signature to use.
+    // (It used to be a <script> tag on every page, for every visitor.)
+    try {
+      await new Promise((resolve, reject) => {
+        const sdk = document.createElement('script');
+        sdk.src = 'https://res.wx.qq.com/open/js/jweixin-1.6.0.js';
+        sdk.onload = resolve;
+        sdk.onerror = reject;
+        document.head.appendChild(sdk);
+      });
+    } catch (e) {
+      console.log('load wx sdk error', e);
       return;
     }
     console.log(configData)
@@ -61,13 +74,16 @@
   })();
 </script>
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  try {
-    mermaid.initialize({ startOnLoad: true });
-    await mermaid.run({
-      querySelector: '.language-mermaid',
-    });
-  } catch (e) {
-    console.error('load mermaid error')
+  // mermaid is only fetched from the CDN on pages that actually contain a diagram
+  if (document.querySelector('.language-mermaid')) {
+    try {
+      const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs');
+      mermaid.initialize({ startOnLoad: true });
+      await mermaid.run({
+        querySelector: '.language-mermaid',
+      });
+    } catch (e) {
+      console.error('load mermaid error')
+    }
   }
 </script>
