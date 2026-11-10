@@ -8,9 +8,9 @@
     "hsk": "husky install",
     "dev": "hugo server",
     "init": "git submodule init && git submodule update --remote",
-    "build": "hugo --minify",
-    "deploy:preview": "hugo --minify && wrangler deploy --env preview",
-    "deploy": "hugo --minify && wrangler deploy"
+    "build": "hugo --minify --cleanDestinationDir",
+    "deploy:preview": "hugo --minify --cleanDestinationDir && wrangler deploy --env preview",
+    "deploy": "hugo --minify --cleanDestinationDir && wrangler deploy"
   },
   "repository": {
     "type": "git",
