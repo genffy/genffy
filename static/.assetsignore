@@ -1,0 +1,4 @@
+# Files that must never be uploaded as site assets (gitignore syntax, read by wrangler from public/).
+# Hugo copies everything under static/ into public/, Finder droppings included.
+.DS_Store
+.gitkeep

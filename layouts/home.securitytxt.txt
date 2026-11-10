@@ -1,0 +1,7 @@
+{{- /* RFC 9116 security.txt, published at /.well-known/security.txt (output format "securitytxt" in config.yaml).
+       Expires must stay in the future, so it is recomputed on every build instead of being hard-coded. */ -}}
+Contact: https://github.com/genffy/genffy/security/advisories/new
+Expires: {{ (now.UTC.AddDate 0 0 364).Format "2006-01-02T15:04:05Z" }}
+Preferred-Languages: zh, en
+Canonical: {{ "/.well-known/security.txt" | absURL }}
+Canonical: https://www.genffy.com/.well-known/security.txt
